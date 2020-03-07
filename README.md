@@ -93,8 +93,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|post_id|integer|null: false, foreign_key: true|
-|template_id|integer|null: false, foreign_key: true|
+|post_id|references|null: false, foreign_key: true|
+|template_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :post
