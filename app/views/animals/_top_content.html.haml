@@ -2,16 +2,28 @@
   .nav
     .nav-title 
       %h1 はみがき記録帳
-    .nav-username だいすけ
     .nav-icons
+      .nav-username だいすけ
       .nav-icons--new__animal
         =link_to "#", class:"post--record__new" do
-          新しい歯磨き記録
+          新しい
+          %br
+          歯磨き記録
       .nav-icons--edit__user 
         =link_to "#", class:"edit--user__profile" do
-          ユーザー情報編集
+          ユーザー情報
+          %br
+          編集
   .animals-select
     .animal--card
-      =link_to "#", class:"show--animal__detail" do  
-        .animal--card__photo ここに写真が入る
+      = link_to "#", class:"show--animal__detail" do
+        .animal--card__photo 
+          %image 
+            Noimage
+        .animal--card__name ここに名前が入る
+    .animal--card
+      = link_to "#", class:"show--animal__detail" do
+        .animal--card__photo 
+          %image 
+            Noimage
         .animal--card__name ここに名前が入る
