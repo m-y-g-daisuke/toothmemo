@@ -1,0 +1,25 @@
+.bottom-content{
+  height: 25%;
+  display: flex;
+  .bottom__left{
+    width: 80%;
+    padding: 10px 30px;
+    &--graph{
+      background-color: honeydew;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .bottom__right{
+    width: 20%;
+    &--btns{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .show__animal--summery{
+        text-decoration: none;
+      }
+    }
+  }
+}

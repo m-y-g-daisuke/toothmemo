@@ -1,0 +1,14 @@
+.middle-content
+  .middle__left
+    .middle__left--photo
+      %img{class:"photo-box"} 
+    =render "middle_content_profile"
+  .middle__right
+    .middle__right--post-btns 
+      .new__post
+        =link_to "#", class:"new__post--btn" do
+          新規記録を作る
+      .show__post
+        =link_to "#", class:"show__post--btn" do
+          過去の記録を見る
+    =render "middle_content_latestPost"

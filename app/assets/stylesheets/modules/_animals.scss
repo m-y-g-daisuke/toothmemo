@@ -1,6 +1,11 @@
 // Place all the styles related to the animals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "modules/animals_top_content";
-@import "modules/animals_middle_content";
-@import "modules/animals_bottom_content";
+.wrapper{
+  background-color: lightcyan;
+  width: 100vw;
+  height: 100vh;
+  @import "modules/animals_top_content";
+  @import "modules/animals_middle_content";
+  @import "modules/animals_bottom_content";
+}
