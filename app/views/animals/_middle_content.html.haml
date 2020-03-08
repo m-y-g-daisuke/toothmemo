@@ -1,13 +1,13 @@
 .middle-content
-  .middle--left
-    .middle--left__photo かわいい写真が入る
+  .middle__left
+    .middle__left--photo かわいい写真が入る
     =render "middle_content_profile"
-  .middle--right
-    .middle--right__post-btns 
-      .new--post
-        =link_to "#", class:"new--post__btn" do
+  .middle__right
+    .middle__right--post-btns 
+      .new__post
+        =link_to "#", class:"new__post--btn" do
           新規記録を作る
-      .show--post
-        =link_to "#", class:"show--post__btn" do
+      .show__post
+        =link_to "#", class:"show__post--btn" do
           過去の記録を見る
     =render "middle_content_latestPost"

@@ -21,13 +21,13 @@
       .nav-username{
         font-size: medium;
       }
-      &--new__animal{
-        .post--record__new{
+      &__new--animal{
+        .post__record--new{
           text-decoration: none;
         }
       }
-      &--edit__user{
-        .edit--user__profile{
+      &__edit--user{
+        .edit__user--profile{
           text-decoration: none;
         }
        }
@@ -37,16 +37,17 @@
     display:flex;
     justify-content: space-evenly;
     margin-top:10px;
-    .animal--card{
-      .show--animal__detail{
+    .animal__card{
+      .show__animal--detail{
         text-decoration: none;
       }
-      &__photo{
+      &--photo{
         border: solid lightgray 1px;
         width: 75px;
         height: 75px;
       }
-      &__name{
+      &--name{
+        color: white;
 
       }
     }
