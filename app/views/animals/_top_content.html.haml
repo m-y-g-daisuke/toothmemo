@@ -4,26 +4,22 @@
       %h1 はみがき記録帳
     .nav-icons
       .nav-username だいすけ
-      .nav-icons___new--animal
-        =link_to "#", class:"post___record--new" do
+      .nav-icons__new--animal
+        =link_to "#", class:"post__record--new" do
           新しい
           %br
           歯磨き記録
-      .nav-icons___edit--user 
-        =link_to "#", class:"edit___user--profile" do
+      .nav-icons__edit--user 
+        =link_to "#", class:"edit__user--profile" do
           ユーザー情報
           %br
           編集
   .animals-select
-    .animal___card
-      = link_to "#", class:"show___animal--detail" do
-        .animal___card--photo 
-          %image 
-            Noimage
-        .animal___card--name ここに名前が入る
-    .animal___card
-      = link_to "#", class:"show___animal--detail" do
-        .animal___card--photo 
-          %image 
-            Noimage
-        .animal___card--name ここに名前が入る
+    .animal__card
+      = link_to "#", class:"show__animal--detail" do
+        %image{class:"animal__card--photo"} 
+        .animal__card--name ここに名前が入る
+    .animal__card
+      = link_to "#", class:"show__animal--detail" do
+        %image{class:"animal__card--photo"}
+        .animal__card--name ここに名前が入る
