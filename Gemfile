@@ -69,3 +69,4 @@ gem "cancancan"
 gem "rails_admin"
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap_form'
