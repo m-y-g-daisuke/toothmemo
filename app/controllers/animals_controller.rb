@@ -12,7 +12,7 @@ class AnimalsController < ApplicationController
   def create
     @animal=Animal.new(animal_params)
     if @animal.save
-      redirect_to roopt_path
+      redirect_to root_path
     else
       render :new
     end
