@@ -6,7 +6,7 @@
       .nav-username
         =current_user.name
       .nav-icons__new--animal
-        =link_to "#", class:"post__record--new" do
+        =link_to new_animal_path, class:"post__record--new" do
           新しい
           %br
           歯磨き記録
@@ -17,7 +17,7 @@
           編集
   .animals-select
     .animal__card
-      = link_to "animal_path", class:"show__animal--detail" do
+      = link_to animal_path, class:"show__animal--detail" do
         %image{class:"animal__card--photo"} 
         .animal__card--name ここに名前が入る
     .animal__card
