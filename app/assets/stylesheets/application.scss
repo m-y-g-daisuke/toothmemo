@@ -4,8 +4,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "modules/user";
-@import "modules/group";
+@import "modules/animal";
 @import "modules/animals";
+@import "config/img";
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
