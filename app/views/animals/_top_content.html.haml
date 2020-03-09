@@ -3,20 +3,21 @@
     .nav-title 
       %h1 はみがき記録帳
     .nav-icons
-      .nav-username だいすけ
+      .nav-username
+        =current_user.name
       .nav-icons__new--animal
         =link_to "#", class:"post__record--new" do
           新しい
           %br
           歯磨き記録
       .nav-icons__edit--user 
-        =link_to "#", class:"edit__user--profile" do
+        =link_to edit_user_path(current_user), class:"edit__user--profile" do
           ユーザー情報
           %br
           編集
   .animals-select
     .animal__card
-      = link_to "#", class:"show__animal--detail" do
+      = link_to "animal_path", class:"show__animal--detail" do
         %image{class:"animal__card--photo"} 
         .animal__card--name ここに名前が入る
     .animal__card
