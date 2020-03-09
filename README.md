@@ -52,41 +52,41 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|datetime|datetime|null: false|
+|datetime|recorded_at|null: false|
 |content|text||
 |image|text||
 |movie|text||
 |animal_id|references|null:false, foreign_key: true|
-|method_id|references|foreign_key: true|
+|tool_id|references|foreign_key: true|
 |template_id|references|foreign_key: true|
 
 ### Association
-- has_many :posts_methods
+- has_many :posts_tools
 - has_many :posts_templates
-- has_many :methods, through: :posts_methods
+- has_many :tools, through: :posts_tools
 - has_many :templates, through: :posts_templates
 - belongs_to :animal
 
-## posts_methodsテーブル
+## posts_toolsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |post_id|references|null: false, foreign_key: true|
-|method_id|references|null: false, foreign_key: true|
+|tool_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :post
-- belongs_to :method
+- belongs_to :tool
 
-## methodsテーブル
+## toolsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|method|string|null:false, unique: true|
+|tool|string|null:false, unique: true|
 
 ### Association
-- has_many :posts_methods
-- has_many :posts, through: :posts_methods
+- has_many :posts_tools
+- has_many :posts, through: :posts_tools
 
 
 ## posts_templatesテーブル
