@@ -19,6 +19,7 @@
     - current_user.animals.each do |animal|
       .animal__card
         = link_to animal_path(animal), class:"show__animal--detail" do
-          %image{src:"https://1.bp.blogspot.com/-XiHMwq1qI74/XYhOX1hmXBI/AAAAAAABVHc/4BLGp1ydpyspbCIToEB5AKFIfwNogJ19wCNcBGAsYHQ/s1600/pet_darui_cat.png",class:"animal__card--photo"}
+          - if animal.image.present?
+            %image{src:"animal.image_url",class:"animal__card--photo"}
           .animal__card--name 
             = animal.name
