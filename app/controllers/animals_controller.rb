@@ -38,7 +38,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name,:birth,:sex,:breed_id,:image).merge(user_id: current_user.id)
+    params.require(:animal).permit(:name, :birth, :sex, :breed_id, :image).merge(user_id: current_user.id)
   end
 
 end
