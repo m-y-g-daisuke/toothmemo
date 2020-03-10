@@ -1,0 +1,20 @@
+= form_with(model: @animal, local: true) do |f|
+  = f.text_field :name, class: "animal__form--name", placeholder: "名前を入力してください"
+  = f.date_select :birth, class:"animal__form--birth"
+  .select-sex
+    = f.radio_button :sex, "オス", id:"male-select",class:"select-sex-btn" 
+    = f.label :sex, "オス", for:"male-select"
+    = f.radio_button :sex, "メス", id:"female-select",class:"select-sex-btn" 
+    = f.label :sex, "メス", for:"female-select" 
+    = f.radio_button :sex, "去勢オス", id:"casted-select",class:"select-sex-btn" 
+    = f.label :sex, "去勢オス", for:"casted-select" 
+    = f.radio_button :sex, "避妊メス", id:"spayed-select",class:"select-sex-btn" 
+    = f.label :sex, "避妊メス", for:"spayed-select"
+  .select-breed{style:"display:none;"} 
+    = f.radio_button :breed, "2", checked:true
+    保留。breed_idを用いて品種を表示してインクリメンタルサーチでさがす様にする
+  .image-upload
+    = f.label :image, class:"image-upload__label" do
+      画像を設定する
+      = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
+  = f.submit "保存", class:"animal__form--submit"

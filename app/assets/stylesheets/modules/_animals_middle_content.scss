@@ -25,6 +25,12 @@
         display: flex;
         justify-content: space-evenly;
       }
+      &-edit{
+        .profile__edit--btn{
+          text-decoration: none;
+          float: right;
+        }
+      }
     }
   }
   .middle__right{
