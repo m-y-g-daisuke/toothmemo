@@ -1,15 +1,17 @@
 .post__box
-  .post__left
-    .post-recorded_at
-      =post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-    .post-tool
-    /=歯磨き道具
-    .post-content_g
-      =post.content_g
-    .post-content_b
-      =post.content_b
-    .post-memo
-      =post.memo
+  %label
+    =link_to animal_post_path(@animal,post) do
+      .post__left
+        .post-recorded_at
+          =post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+        .post-tool
+        /=歯磨き道具
+        .post-content_g
+          =post.content_g
+        .post-content_b
+          =post.content_b
+        .post-memo
+          =post.memo
   .post__right
     .post__right-edit
       =link_to edit_animal_post_path(@animal,post), class:"post__right-edit--link" do

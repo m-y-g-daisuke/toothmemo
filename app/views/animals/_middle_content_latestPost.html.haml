@@ -1,6 +1,12 @@
 .middle__right--post-latest
   .post-latest__box
-    最新の投稿が表示されるところ
-    %br
-    内容はpost
+    %li
+      =@post.recorded_at.strftime("%Y年%m月%d日")
+    %li
+      =@post.content_g
+    %li
+      =@post.content_b
+    %li
+      =@post.memo
+    
   

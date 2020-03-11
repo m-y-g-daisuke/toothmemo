@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post=Post.find(paramas[:id])
+    @post=@animal.posts.find(params[:id])
   end
 
   def new
