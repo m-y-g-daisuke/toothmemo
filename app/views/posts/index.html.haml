@@ -2,23 +2,5 @@
   .title
     %h1 過去の一覧表示
   .posts__box
-    .post__box
-      .post__left
-        ここに投稿が入る
-      .post__right
-        .post__right-edit
-          =link_to "/animals/#{:animal_id}/posts/#{:id}/edit", class:"post__right-edit--link" do
-            編集ボタン
-        .post__right-delete
-          =link_to "/animals/#{:animal_id}/posts/#{:id}", class:"post__right-edit--link",method: :DELETE, data:{ confirm: "削除しますか？"} do
-            削除ボタン
-  .post__box
-    .post__left
-      ここに繰り返しの投稿が入っていく。7日ごとに表示
-    .post__right
-      .post__right-edit
-        =link_to "/animals/#{:animal_id}/posts/#{:id}/edit", class:"post__right-edit--link" do
-          編集ボタン
-      .post__right-delete
-        =link_to "/animals/#{:animal_id}/posts/#{:id}", class:"post__right-edit--link",method: :DELETE, data:{ confirm: "削除しますか？"} do
-          削除ボタン
+    =render @posts
+  
