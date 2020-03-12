@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_085748) do
   end
 
   create_table "tools", force: :cascade do |t|
-    t.string "type", null: false
+    t.string "care", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
