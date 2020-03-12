@@ -6,4 +6,6 @@ class Post < ApplicationRecord
   belongs_to :animal
 
   validates  :recorded_at, presence: true
+
+  mount_uploader :image, ImageUploader
 end

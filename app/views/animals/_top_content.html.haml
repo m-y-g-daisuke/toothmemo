@@ -20,6 +20,6 @@
       .animal__card
         = link_to animal_path(animal), class:"show__animal--detail" do
           - if animal.image.present?
-            %image{src:"animal.image_url",class:"animal__card--photo"}
+            =image_tag animal.image.url(:thumb),class:"animal__card--photo"
           .animal__card--name 
             = animal.name

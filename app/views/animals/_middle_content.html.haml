@@ -1,7 +1,7 @@
 .middle-content
   .middle__left
     .middle__left--photo
-      %img{class:"photo-box"} 
+      =image_tag @animal.image.to_s, class:"photo-box"
     =render partial:"middle_content_profile", locals:{animal:@animal}
   .middle__right
     .middle__right--post-btns 
