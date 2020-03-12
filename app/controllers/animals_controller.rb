@@ -5,6 +5,7 @@ class AnimalsController < ApplicationController
   def show
     @animal=Animal.find(params[:id])
     @post=Post.where(animal_id:params[:id]).last
+    #@breed=@animal.breeds
   end
   
   def new

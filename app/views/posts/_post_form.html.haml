@@ -6,9 +6,14 @@
       .date-tool-box__left--date
         = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"    
     .date-tool-box__right
-      .date-tool-box__left--tool
-        /= f.collection_check_boxes post, :tool_ids, Tool.all, :id, :type
+      =f.label "お手入れ方法", for:"date-tool-box__right--tool-checkboxes", class:"date-tool-box__right--tool-title"
+      .date-tool-box__right--tool
+        = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"date-tool-box__right--tool-checkboxes"
   .result-box
+    .template-records__title
+      =f.label "磨けたところ", for:"template-records__cares-checkboxes"
+      .template-records__cares
+        = f.collection_check_boxes :template_ids, Template.all, :id, :content, class:"template-records__cares-checkboxes"
     .result-box__left
       =f.label "できたこと", for:"result--gj" 
       .result-box__left--gj
