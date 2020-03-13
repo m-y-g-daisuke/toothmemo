@@ -1,1 +1,37 @@
-まだ見せられないよ！！_post_form.html.hamlを雛形につくるよ
+.wrapper
+  .date-tool-box
+    .date-tool-box__left
+      .date-tool-box__left--date
+        =@post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+    .date-tool-box__right
+      %h2 "お手入れ方法"
+      .date-tool-box__right--tool
+        -@post.tools.each do |tool|
+          =tool.care
+  .result-box
+    .tag_words__title
+      %h2 "磨けたところ"
+      .tag_words__words
+        -@post.tag_words.each do |tag_word|
+          =tag_word.word        
+    .result-box__left
+      %h2 "できたこと"
+      .result-box__left--gj
+        =@post.content_g
+    .result-box__right
+      %h2 "不安なところ"
+      .result-box__right--anxiety
+        =@post.content_b
+  .file-box
+    - if @post.image.present?
+      =image_tag @post.image.to_s, class:"photo-box"
+    - if @post.movie.present?
+      =video_tag @post.movie.to_s, class:"movie-box"
+  .memo-box
+    %h2 メモ
+    .memo-box--t_area
+    =@post.memo
+
+  .temporary-link
+    =link_to animal_path(@animal) do
+      トップページへ

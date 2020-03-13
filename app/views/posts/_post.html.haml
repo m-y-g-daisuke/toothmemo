@@ -5,7 +5,8 @@
         .post-recorded_at
           =post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
         .post-tool
-        /=歯磨き道具
+          -post.tools.each do |tool|
+            =tool.care
         .post-content_g
           =post.content_g
         .post-content_b
