@@ -2,10 +2,11 @@
   .middle__left--profile-top
     .middle__left--profile-name
       =animal.name
-    .middle__left--profile-age
-      =@age + "歳"
-    .middle__left--profile-birth
-      =animal.birth.strftime("%Y年%m月%d日")
+    -if animal.birth.present?
+      .middle__left--profile-age
+        =@age + "歳"
+      .middle__left--profile-birth
+        =animal.birth.strftime("%Y年%m月%d日")
   .middle__left--profile-bottom
     .middle__left--profile-sex
       =animal.sex
