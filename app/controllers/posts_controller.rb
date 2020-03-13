@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:recorded_at, :content_g,:content_b, :memo, :tool, :image)
+    params.require(:post).permit(:recorded_at, :content_g,:content_b, :memo, :image, tool_ids:[], tag_word_ids:[] )
   end
 
   def set_animal

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_050401) do
+ActiveRecord::Schema.define(version: 2020_03_13_063027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +40,11 @@ ActiveRecord::Schema.define(version: 2020_03_13_050401) do
     t.text "image"
     t.text "movie"
     t.bigint "animal_id", null: false
-    t.bigint "tool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "memo"
     t.text "content_b"
-    t.bigint "tag_word_id"
     t.index ["animal_id"], name: "index_posts_on_animal_id"
-    t.index ["tag_word_id"], name: "index_posts_on_tag_word_id"
-    t.index ["tool_id"], name: "index_posts_on_tool_id"
   end
 
   create_table "posts_tag_words", force: :cascade do |t|
@@ -98,8 +94,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_050401) do
   add_foreign_key "animals", "breeds"
   add_foreign_key "animals", "users"
   add_foreign_key "posts", "animals"
-  add_foreign_key "posts", "tag_words"
-  add_foreign_key "posts", "tools"
   add_foreign_key "posts_tag_words", "posts"
   add_foreign_key "posts_tag_words", "tag_words"
   add_foreign_key "posts_tools", "posts"
