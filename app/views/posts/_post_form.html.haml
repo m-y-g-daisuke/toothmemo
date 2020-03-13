@@ -10,10 +10,10 @@
       .date-tool-box__right--tool
         = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"date-tool-box__right--tool-checkboxes"
   .result-box
-    .template-records__title
-      =f.label "磨けたところ", for:"template-records__cares-checkboxes"
-      .template-records__cares
-        = f.collection_check_boxes :template_ids, Template.all, :id, :content, class:"template-records__cares-checkboxes"
+    .tag_words__title
+      =f.label "磨けたところ", for:"tag_words--checkboxes"
+      .tag_words__words
+        = f.collection_check_boxes :tag_word_ids, TagWord.all, :id, :word, class:"tag_words--checkboxes"
     .result-box__left
       =f.label "できたこと", for:"result--gj" 
       .result-box__left--gj
