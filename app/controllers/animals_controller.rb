@@ -7,10 +7,11 @@ class AnimalsController < ApplicationController
     @post=Post.where(animal_id:params[:id]).last
     breed=@animal.breed_id
     @family=Breed.find(breed).family
+    @age=@animal.age
   end
   
   def new
-    @animal=Animal.newparam
+    @animal=Animal.new
   end
 
   def create

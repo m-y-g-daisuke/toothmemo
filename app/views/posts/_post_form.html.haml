@@ -24,7 +24,13 @@
         =f.text_area :content_b, size:"50x10", class:"result--anxiety",placeholder:"よくわからないことや改善したいこと"
   .file-box
     .file-box__uploader
-      = f.file_field :image
+      .file-box__uploader-image  
+        画像
+        = f.file_field :image, accept:"image/jpeg,image/gif,image/png,video/*"
+      .file-box__uploader-movie  
+        動画
+        = f.file_field :movie, accept:"video/*"
+        
   .memo-box
     =f.label :メモ, for:"record--memo" 
     .memo-box--t_area
