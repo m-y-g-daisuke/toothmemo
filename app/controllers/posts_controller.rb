@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def update
     @post=@animal.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to animal_path(@animal)
+      redirect_to animal_post_path(@animal)
     else
       render :edit
     end
