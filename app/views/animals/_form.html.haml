@@ -10,9 +10,8 @@
     = f.label :sex, "去勢オス", for:"casted-select" 
     = f.radio_button :sex, "避妊メス", id:"spayed-select",class:"select-sex-btn" 
     = f.label :sex, "避妊メス", for:"spayed-select"
-  .select-breed{style:"display:none;"} 
-    = f.radio_button :breed, "2", checked:true
-    保留。breed_idを用いて品種を表示してインクリメンタルサーチでさがす様にする
+  .select-breed 
+    = f.collection_select :breed_id, Breed.all, :id, :family ,class:"select-breed-btn"
   .image-upload
     = f.label :image, class:"image-upload__label" do
       画像を設定する

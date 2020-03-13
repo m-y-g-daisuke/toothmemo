@@ -1,16 +1,16 @@
 .middle__left--profile
   .middle__left--profile-top
     .middle__left--profile-name
-      = animal.name
+      =animal.name
     .middle__left--profile-age
       年齢
     .middle__left--profile-birth
-      = animal.birth.strftime("%Y年%m月%d日")
+      =animal.birth.strftime("%Y年%m月%d日")
   .middle__left--profile-bottom
     .middle__left--profile-sex
       =animal.sex
     .middle__left--profile-breed
-      =animal.breeds.name
+      =@family
   .middle__left--profile-edit
     =link_to edit_animal_path(params[:id]), class:"profile__edit--btn" do
       編集

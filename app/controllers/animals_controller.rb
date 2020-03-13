@@ -4,10 +4,13 @@ class AnimalsController < ApplicationController
 
   def show
     @animal=Animal.find(params[:id])
+    @post=Post.where(animal_id:params[:id]).last
+    breed=@animal.breed_id
+    @family=Breed.find(breed).family
   end
   
   def new
-    @animal=Animal.new
+    @animal=Animal.newparam
   end
 
   def create
@@ -18,11 +21,11 @@ class AnimalsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @animal=Animal.find(params[:id])
   end
-
+  
   def update
     @animal=Animal.find(params[:id])
     if @animal.update(animal_params)
