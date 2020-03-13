@@ -7,7 +7,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :movie
       t.references :animal, null:false, foreign_key: true
       t.references :tool, foreign_key: true
-      t.references :template, foreign_key: true
       t.timestamps
     end
   end
