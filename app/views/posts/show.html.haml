@@ -26,7 +26,7 @@
     - if @post.image.present?
       =image_tag @post.image.to_s, class:"photo-box"
     - if @post.movie.present?
-      =video_tag @post.movie.to_s, class:"movie-box"
+      =video_tag @post.movie.to_s, width: "30%", height: "30%", controls: true, autobuffer: true, class:"movie-box"
   .memo-box
     %h2 メモ
     .memo-box--t_area
