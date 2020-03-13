@@ -80,6 +80,9 @@ test:
 #
 production:
   <<: *default
-  database: toothmemo_production
-  username: toothmemo
-  password: <%= ENV['TOOTHMEMO_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  #database: toothmemo_production
+  #username: toothmemo
+  #password: <%= ENV['TOOTHMEMO_DATABASE_PASSWORD'] %>
