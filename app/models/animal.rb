@@ -6,15 +6,17 @@ class Animal < ApplicationRecord
   mount_uploader :image, ImageUploader
 #生年月日から年齢を出すメソッド
   def age
-    require"date"
-    birthday=self.birth
-    d=Date.today 
+    if self.birth.present?
+      require"date"
+      birthday=self.birth
+      d=Date.today 
 
-    year= d.year - birthday.year
-    month = d.month - birthday.month
-    day= d.day - birthday.day
+      year= d.year - birthday.year
+      month = d.month - birthday.month
+      day= d.day - birthday.day
 
-    month >= 0 || day>= 0 ? "#{age=year}" : "#{age=year - 1}"
+      month >= 0 || day>= 0 ? "#{age=year}" : "#{age=year - 1}"
+    end
   end
 
 end
