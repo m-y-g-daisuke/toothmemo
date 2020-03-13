@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_080435) do
+ActiveRecord::Schema.define(version: 2020_03_13_050401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 2020_03_12_080435) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "breed_id"
     t.text "image"
+    t.bigint "breed_id"
     t.index ["breed_id"], name: "index_animals_on_breed_id"
     t.index ["user_id"], name: "index_animals_on_user_id"
   end
 
   create_table "breeds", force: :cascade do |t|
-    t.string "breed", null: false
+    t.string "family", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,23 +41,23 @@ ActiveRecord::Schema.define(version: 2020_03_12_080435) do
     t.text "movie"
     t.bigint "animal_id", null: false
     t.bigint "tool_id"
-    t.bigint "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "memo"
     t.text "content_b"
+    t.bigint "tag_word_id"
     t.index ["animal_id"], name: "index_posts_on_animal_id"
-    t.index ["template_id"], name: "index_posts_on_template_id"
+    t.index ["tag_word_id"], name: "index_posts_on_tag_word_id"
     t.index ["tool_id"], name: "index_posts_on_tool_id"
   end
 
-  create_table "posts_templates", force: :cascade do |t|
+  create_table "posts_tag_words", force: :cascade do |t|
     t.bigint "post_id", null: false
-    t.bigint "template_id", null: false
+    t.bigint "tag_word_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_posts_templates_on_post_id"
-    t.index ["template_id"], name: "index_posts_templates_on_template_id"
+    t.index ["post_id"], name: "index_posts_tag_words_on_post_id"
+    t.index ["tag_word_id"], name: "index_posts_tag_words_on_tag_word_id"
   end
 
   create_table "posts_tools", force: :cascade do |t|
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_080435) do
     t.index ["tool_id"], name: "index_posts_tools_on_tool_id"
   end
 
-  create_table "templates", force: :cascade do |t|
-    t.string "content", null: false
+  create_table "tag_words", force: :cascade do |t|
+    t.string "word", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,10 +98,10 @@ ActiveRecord::Schema.define(version: 2020_03_12_080435) do
   add_foreign_key "animals", "breeds"
   add_foreign_key "animals", "users"
   add_foreign_key "posts", "animals"
-  add_foreign_key "posts", "templates"
+  add_foreign_key "posts", "tag_words"
   add_foreign_key "posts", "tools"
-  add_foreign_key "posts_templates", "posts"
-  add_foreign_key "posts_templates", "templates"
+  add_foreign_key "posts_tag_words", "posts"
+  add_foreign_key "posts_tag_words", "tag_words"
   add_foreign_key "posts_tools", "posts"
   add_foreign_key "posts_tools", "tools"
 end
