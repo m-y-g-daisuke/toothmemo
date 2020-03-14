@@ -1,4 +1,6 @@
 .wrapper
   = render "top_content"
-  = render "middle_content"
+  .middle-content
+    = render partial:"middle_content_left", locals:{animal:@animal,breed:@breed}
+    = render "middle_content_right"
   = render "bottom_content"

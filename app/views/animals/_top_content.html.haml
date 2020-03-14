@@ -1,25 +1,45 @@
-.top-content
-  .nav
-    .nav-title 
-      %h1 はみがき記録帳
-    .nav-icons
-      .nav-username
-        =current_user.name
-      .nav-icons__new--animal
-        =link_to new_animal_path, class:"post__record--new" do
-          新しく
-          %br
-          歯磨きする子
-      .nav-icons__edit--user 
-        =link_to edit_user_path(current_user), class:"edit__user--profile" do
-          ユーザー情報
-          %br
-          編集
-  .animals-select
-    - current_user.animals.each do |animal|
-      .animal__card
-        = link_to animal_path(animal), class:"show__animal--detail" do
-          - if animal.image.present?
-            =image_tag animal.image.url(:thumb),class:"animal__card--photo"
-          .animal__card--name 
-            = animal.name
+%nav{class:"navbar navbar-dark bg-primary"}
+  .nav-title 
+    %div{class:"container"}
+      %a{class:"navbar-brand display-1", href:root_path}
+        %h1
+          はみがき記録帳
+      %div{class:"btn-group dropright"}
+        %button{type:"button",
+                class:"btn btn-success dropdown-toggle",
+                data:{toggle:"dropdown"},
+                aria:{haspopup:"true",
+                      expanded:"false"}}
+          -if @animal.present?
+            =@animal.name
+          -else
+            はみがき
+        %div{class:"dropdown-menu"}
+          - current_user.animals.each do |animal|
+            .animal__card
+              = link_to animal_path(animal), class:"show__animal--detail dropdown-item" do
+                - if animal.image.present?
+                  =image_tag animal.image.url(:thumb),class:"animal__card--photo"
+                  .animal__card--name 
+                    =animal.name
+          .animal__card
+            =link_to new_animal_path, class:"post__record--new" do
+              %button{type:"button",class:"btn btn-success btn-sm"}
+                新規登録
+  .nav-icons
+    %ul{class:"navbar justify-content-space-between"}
+      %li{class:"nav-item"}
+        %div{class:"dropdown"}
+          %button{class:"btn btn-success dropdown-toggle",
+                  type:"button",
+                  id:"dropdownMenuButton",
+                  data:{toggle:"dropdown"},
+                  aria:{haspopup:"true",
+                        expanded:"false"}}
+            =current_user.name
+          %div{class:"dropdown-menu",
+              aria:{labelledby:"dropdownMenuButton"}}
+            %a{class:"dropdown-item", href:edit_user_path(current_user)}
+              編集
+      %li{class:"nav-item"}
+        = link_to "戻る", :back, class: 'btn btn-dark'
