@@ -1,15 +1,5 @@
 .wrapper
-  .nav{class:"navbar navbar-expand navbar-dark bg-dark fixed-top"}
-    %ul{class:"navbar-nav ml-auto"}
-      %li{class:"nav-item"}
-        =link_to "#", class: "nav-link" do
-          Home
-      %li{class:"nav-item"}
-        =link_to "#", class: "nav-link" do
-          Blog
-      %li{class:"nav-item"}
-        =link_to "#", class: "nav-link" do
-          Contents
+  =render "animals/top_content"
   .title
     %h1 過去の一覧表示
   .posts__box
