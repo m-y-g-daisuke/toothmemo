@@ -1,40 +1,42 @@
-= form_with(model: [@animal,post], local: true) do |f|
-  .submit-box
-    = f.submit "提出する"
-  .date-tool-box
-    .date-tool-box__left
-      .date-tool-box__left--date
-        = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"    
-    .date-tool-box__right
-      =f.label "お手入れ方法", for:"date-tool-box__right--tool-checkboxes", class:"date-tool-box__right--tool-title"
-      .date-tool-box__right--tool
-        = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"date-tool-box__right--tool-checkboxes"
-  .result-box
-    .tag_words__title
-      =f.label "磨けたところ", for:"tag_words--checkboxes"
-      .tag_words__words
-        = f.collection_check_boxes :tag_word_ids, TagWord.all, :id, :word, class:"tag_words--checkboxes"
-    .result-box__left
-      =f.label "できたこと", for:"result--gj" 
-      .result-box__left--gj
-        =f.text_area :content_g, size:"50x10", class:"result--gj",placeholder:"どんなことでもいいので、できたことを記録しましょう！"
-    .result-box__right
-      =f.label "不安なところ", for:"result--anxiety" 
-      .result-box__right--anxiety
-        =f.text_area :content_b, size:"50x10", class:"result--anxiety",placeholder:"よくわからないことや改善したいこと"
-  .file-box
-    .file-box__uploader
-      .file-box__uploader-image  
+.container
+  = form_with(model: [@animal,post], local: true) do |f|
+    .first-box.row
+      = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"  
+ 
+    .second-box.row.align-items-center
+      .second-box__left.col
+        =f.label "お手入れ方法", for:"tool--checkboxes", class:"second-box__left--tool-title"
+        .second-box__left
+          = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes"
+      .second-box__right.col
+        =f.label "磨けたところ", for:"tag_words--checkboxes",class:"second-box__right--tag_words--checkboxes"
+        .second-box__right
+          = f.collection_check_boxes :tag_word_ids, TagWord.all, :id, :word, class:"tag_words--checkboxes"
+
+    .third-box.row
+      %div{class:"card text-white bg-primary mb-3 col"}
+        %div{class:"card-header"}
+          =f.label "できたこと", for:"result--gj" 
+          .third-box__left.card-text
+            =f.text_area :content_g, size:"50x5", class:"result--gj",placeholder:"どんなことでもいいので、できたことを記録しましょう！"
+      %div{class:"card text-white bg-secondary mb-3 col"}
+        %div{class:"card-header"}
+          =f.label "不安なところ", for:"result--anxiety" 
+          .third-box__right--anxiety
+            =f.text_area :content_b, size:"50x5", class:"result--anxiety",placeholder:"よくわからないことや改善したいこと"
+    .forth-box.row
+      .file-box__uploader-image.col 
         画像
         = f.file_field :image, accept:"image/jpeg,image/gif,image/png,video/*"
-      .file-box__uploader-movie  
+      .file-box__uploader-movie.col{style:"display:none;"} 
         動画
         = f.file_field :movie, accept:"video/*"
-        
-  .memo-box
-    =f.label :メモ, for:"record--memo" 
-    .memo-box--t_area
-    =f.text_area :memo, size:"80x10", class:"record--memo",placeholder:"思ったことなんでも記入してください"
-
-
-
+    
+    .fifth-box.form.row.align-items-center     
+      .memo-box.col
+        =f.label :メモ, for:"record--memo" 
+        .memo-box--t_area
+          =f.text_area :memo, size:"80x5", class:"record--memo",placeholder:"思ったことなんでも記入してください"
+      .submit-box.col
+        .vertical
+          = f.submit "提出する",class:"btn btn-outline-primary"

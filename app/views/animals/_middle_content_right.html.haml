@@ -1,0 +1,21 @@
+.middle__right
+  .middle__right--post-btns 
+    .new__post
+      =link_to new_animal_post_path(@animal), class:"new__post--btn btn btn-primary" do
+        新規記録を作る
+    .show__post
+      =link_to animal_posts_path(@animal), class:"show__post--btn btn btn-primary" do
+        過去の記録を見る
+  .middle__right--post-latest
+    .post-latest__box
+      -if @post.present?
+        %li
+          =@post.recorded_at.strftime("%Y年%m月%d日")
+        %li
+          =@post.content_g
+        %li
+          =@post.content_b
+        %li
+          =@post.memo
+        
+    
