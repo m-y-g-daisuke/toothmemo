@@ -15,8 +15,8 @@
           =post.memo
   .post__right
     .post__right-edit
-      =link_to edit_animal_post_path(@animal,post), class:"post__right-edit--link" do
-        編集ボタン
+      =link_to edit_animal_post_path(@animal,post), class:"post__right-edit--link btn-outline-warning" do
+        編集
     .post__right-delete
-      =link_to animal_post_path(@animal,post), class:"post__right-edit--link",method: :delete, data:{ confirm: "削除しますか？"} do
-        削除ボタン
+      =link_to animal_post_path(@animal,post), class:"post__right-edit--link btn-outline-danger",method: :delete, data:{ confirm: "削除しますか？"} do
+        削除
