@@ -43,12 +43,14 @@
         - if @post.movie.present?
           =video_tag @post.movie.to_s, width: "30%", height: "30%", controls: true, autobuffer: true, class:"movie-box"
     
-    .fifth-box.form.row.align-items-center     
-      .memo-box.col
-        %h5
-          メモ
-        .memo-box--t_area
-        =@post.memo
+      .fifth-box.form.col.align-items-center     
+        .memo-box.col.card.bg.light.mb-3{style:"max-width:40rem;"}
+          %h5{class:"card-header"}
+            メモ
+          .memo-box--t_area.card-body 
+            %p{class:"card-text"}
+              =@post.memo
+
 
     .temporary-link
       =link_to animal_posts_path(@animal), class:"show__post--btn btn btn-primary" do
