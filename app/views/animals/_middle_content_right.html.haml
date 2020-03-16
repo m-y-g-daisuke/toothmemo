@@ -5,17 +5,19 @@
         新規記録を作る
     .show__post
       =link_to animal_posts_path(@animal), class:"show__post--btn btn btn-primary" do
-        過去の記録を見る
-  .middle__right--post-latest
-    .post-latest__box
-      -if @post.present?
-        %li
-          =@post.recorded_at.strftime("%Y年%m月%d日")
-        %li
-          =@post.content_g
-        %li
-          =@post.content_b
-        %li
-          =@post.memo
-        
-    
+        過去の記録一覧
+  -if @post.present?
+    .middle__right--post-latest.card.border-primary.mb-3{style:"max-width: 30rem;"}
+      .post-latest__box.card-header
+        ="最新の記録"
+      .post-latest__box.card-body
+        %ul{class:"list-group list-group-flush"}
+          %li{class:"list-group-item"}
+            %h5
+              =@post.recorded_at.strftime("%Y年%m月%d日")
+          %li{class:"list-group-item"} 
+            =@post.content_g
+          %li{class:"list-group-item"}
+            =@post.content_b
+          %li{class:"list-group-item"}            
+            =@post.memo
