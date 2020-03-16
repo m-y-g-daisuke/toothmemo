@@ -5,6 +5,7 @@ class AnimalsController < ApplicationController
   def show
     @animal=Animal.find(params[:id])
     @post=Post.where(animal_id:params[:id]).last
+    @graph=Post.where(animal_id:params[:id]).last(14)
     breed=@animal.breed_id
     @family=Breed.find(breed).family
     @age=@animal.age
