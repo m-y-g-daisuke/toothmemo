@@ -1,22 +1,24 @@
-.post__box
+.post__box.card.border-primary.mb-3{style:"max-width: 50rem;"}
   %label
-    =link_to animal_post_path(@animal,post) do
-      .post__left
-        .post-recorded_at
-          =post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-        .post-tool
+    =link_to animal_post_path(@animal,post), class:"post__box--link" do
+      .post__recorded_at.card-header.bg-transparent.border-primary
+        =post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+      .card-body.text-info{style:"max-height: 5rem;"}
+        .post-tool.card-text
+          歯磨き道具：
           -post.tools.each do |tool|
             =tool.care
-        .post-content_g
+        .post-content_g.card-text
+          できたこと：
           =post.content_g
-        .post-content_b
+        .post-content_b.card-text
+          不安なこと：
           =post.content_b
-        .post-memo
+        .post-memo.card-text
+          メモ：
           =post.memo
-  .post__right
-    .post__right-edit
-      =link_to edit_animal_post_path(@animal,post), class:"post__right-edit--link btn-outline-warning" do
-        編集
-    .post__right-delete
-      =link_to animal_post_path(@animal,post), class:"post__right-edit--link btn-outline-danger",method: :delete, data:{ confirm: "削除しますか？"} do
-        削除
+  .post__right.card-footer.bg-transparent.border-primary
+    =link_to edit_animal_post_path(@animal,post), class:"post__right-edit--link btn-outline-warning" do
+      編集
+    =link_to animal_post_path(@animal,post), class:"post__right-edit--link btn-outline-danger",method: :delete, data:{ confirm: "削除しますか？"} do
+      削除

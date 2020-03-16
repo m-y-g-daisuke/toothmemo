@@ -1,0 +1,21 @@
+.wrapper{
+  overflow: scroll;
+  .posts__box{
+    .post__box{
+      margin: 0 auto; 
+      &--link{
+        text-decoration: none;
+      }
+      .post__recorded_at{
+      }
+      .card-body{
+        overflow: scroll;
+      }
+      .post__right{
+        &-edit--link{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
