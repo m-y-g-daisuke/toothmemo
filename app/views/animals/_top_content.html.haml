@@ -18,10 +18,9 @@
           - current_user.animals.each do |animal|
             .animal__card
               = link_to animal_path(animal), class:"show__animal--detail dropdown-item" do
-                - if animal.image.present?
-                  =image_tag animal.image.url(:thumb),class:"animal__card--photo"
-                  .animal__card--name 
-                    =animal.name
+                =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:""
+                .animal__card--name 
+                  =animal.name
           .animal__card
             =link_to new_animal_path, class:"post__record--new" do
               %button{type:"button",class:"btn btn-success btn-sm"}
