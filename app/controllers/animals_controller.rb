@@ -4,10 +4,9 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @post=Post.where(animal_id:params[:id]).last
+    @post=Post.where(animal_id:params[:id]).order(recorded_at: "DESC").first
     @graph=Post.where(animal_id:params[:id]).last(14)
-    breed=@animal.breed_id
-    @family=Breed.find(breed).family
+    @breed=@animal.breed
     @age=@animal.age
   end
   

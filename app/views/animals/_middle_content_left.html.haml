@@ -19,7 +19,7 @@
         .middle__left--profile-sex
           ="性別：　" + animal.sex
         .middle__left--profile-breed
-          ="品種：　" + @family
+          ="品種：　" + @breed.family
         .middle__left--profile-edit
           =link_to edit_animal_path(params[:id]), class:"profile__edit--btn badge badge-primary" do
             編集  

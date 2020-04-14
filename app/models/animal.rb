@@ -4,7 +4,8 @@ class Animal < ApplicationRecord
   belongs_to :user
   
   mount_uploader :image, ImageUploader
-#生年月日から年齢を出すメソッド
+
+  #生年月日から年齢を出すメソッド
   def age
     if self.birth.present?
       require"date"
