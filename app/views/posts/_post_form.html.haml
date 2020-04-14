@@ -12,11 +12,11 @@
                 %h5 お手入れ方法
           %tbody
             .second-box__left
-            = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
-              =tool.label do
-                %tr
-                  %td=tool.object.care
-                  %td=tool.check_box
+              = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
+                =tool.label do
+                  %tr
+                    %td=tool.object.care
+                    %td=tool.check_box
                 
       .second-box__right.col
         %table
@@ -24,13 +24,19 @@
             %tr
               %th
                 %h5 磨けたところ
-          %tbody
-            .second-box__right
-            = f.collection_check_boxes :tag_word_ids, TagWord.all, :id, :word, class:"tag_words--checkboxes" do |word|
-              =word.label do
-                %tr
-                  %td=word.object.word
-                  %td=word.check_box
+          %tbody.row
+            .second-box__right--left.col
+              = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
+                =word.label do
+                  %tr
+                    %td=word.object.word
+                    %td=word.check_box
+            .second-box__right--right.col
+              = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
+                =word.label do
+                  %tr
+                    %td=word.object.word
+                    %td=word.check_box
                   
 
     .third-box.row
