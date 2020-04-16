@@ -1,17 +1,13 @@
+nav{
+  height: 100px;
+}
 .nav{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: solid gray 1px;
   &-title{
-    font-weight: bold;
     width:50%;
-    height: 100%;
   }
   &-icons{
     padding-right: 10%;
     padding-left: 10%;
-    height: 100%;
     width: 45%;
     align-items: center;
     .nav-username{
