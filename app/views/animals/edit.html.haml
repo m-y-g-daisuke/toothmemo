@@ -1,3 +1,4 @@
-.register-animal-form
-  %h1 歯磨きする子の編集
-  =render partial:"form",locals:{animal:@animal}
+=render "layouts/header"
+.container
+    %h1.title 歯磨きする子の編集
+    =render partial:"form",locals:{animal:@animal}
