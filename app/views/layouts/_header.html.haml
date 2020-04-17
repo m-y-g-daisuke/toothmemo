@@ -13,7 +13,7 @@
           -if @animal.present?
             =@animal.name
           -else
-            はみがき
+            うちの子
         %div{class:"dropdown-menu"}
           - current_user.animals.each do |animal|
             .animal__card

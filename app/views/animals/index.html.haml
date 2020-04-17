@@ -1,3 +1,12 @@
+= render "layouts/header"
 .wrapper
-  = render "layouts/header"
-  %h1 ようこそ！歯磨き記録帳へ！まずは動物を登録してみよう！！
+  .container
+    -unless current_user.animals.present?
+      %h1 ようこそ！歯磨き記録帳へ！まずは動物を登録してみよう！！
+    -else
+      - current_user.animals.each do |animal|
+        .animal__card
+          = link_to animal_path(animal), class:"show__animal--detail dropdown-item" do
+            =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:""
+            .animal__card--name 
+              =animal.name
