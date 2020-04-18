@@ -10,3 +10,7 @@
             =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:""
             .animal__card--name 
               =animal.name
+    .animal__card
+      =link_to new_animal_path, class:"post__record--new" do
+        %button{type:"button",class:"btn btn-success btn-sm"}
+          新規登録
