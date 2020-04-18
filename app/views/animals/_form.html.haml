@@ -23,9 +23,8 @@
     .form-control
       = f.collection_select :breed_id, Breed.all, :id, :family ,class:"select-breed-btn form-control",prompt:"--"
   .form-group
-    .image-upload.form-control
-      = f.label :image, class:"image-upload__label" do
-        画像を設定する
-        = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
-    
-  = f.submit "保存", class:"animal__form--submit btn btn-primary"
+    = f.label "プロフィール画像を設定する", class:"image-upload__label"
+    .form-control
+      = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
+  .form-group  
+    = f.submit "保存", class:"animal__form--submit btn btn-primary"
