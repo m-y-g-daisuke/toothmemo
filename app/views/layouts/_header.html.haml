@@ -1,44 +1,32 @@
-%nav{class:"navbar navbar-dark bg-primary"}
-  .nav-title 
-    %div{class:"container"}
-      %a{class:"navbar-brand display-1", href:root_path}
-        %h1
-          はみがき記録帳
-      %div{class:"btn-group dropright"}
-        %button{type:"button",
-                class:"btn btn-success dropdown-toggle",
-                data:{toggle:"dropdown"},
-                aria:{haspopup:"true",
-                      expanded:"false"}}
-          -if @animal.present?
+%nav{class:"navbar navbar-expand-lg navbar-dark bg-primary"}
+  %a.navbar-brand{href:root_path}
+    %h1
+      はみがき記録帳
+  %button.navbar-toggler{"aria-controls" => "navbarTogglerDemo02",
+                         "aria-expanded" => "false", 
+                         "aria-label" => "Toggle navigation", 
+                         "data-target" => "#navbarTogglerDemo02", 
+                         "data-toggle" => "collapse", 
+                         type:"button"}
+    %span.navbar-toggler-icon
+  #navbarTogglerDemo02.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+      %li.nav-item.active
+        -if @animal.present? && @animal.id.present?
+          %a.nav-link{href:animal_path(@animal)}
             =@animal.name
-          -else
-            うちの子
-        %div{class:"dropdown-menu"}
-          - current_user.animals.each do |animal|
-            .animal__card
-              = link_to animal_path(animal), class:"show__animal--detail dropdown-item" do
-                =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:""
-                .animal__card--name 
-                  =animal.name
-          .animal__card
-            =link_to new_animal_path, class:"post__record--new" do
-              %button{type:"button",class:"btn btn-success btn-sm"}
-                新規登録
-  .nav-icons
-    %ul{class:"navbar justify-content-space-between"}
-      %li{class:"nav-item"}
-        %div{class:"dropdown"}
-          %button{class:"btn btn-success dropdown-toggle",
-                  type:"button",
-                  id:"dropdownMenuButton",
-                  data:{toggle:"dropdown"},
-                  aria:{haspopup:"true",
-                        expanded:"false"}}
-            =current_user.name
-          %div{class:"dropdown-menu",
-              aria:{labelledby:"dropdownMenuButton"}}
-            %a{class:"dropdown-item", href:edit_user_path(current_user)}
-              編集
-      %li{class:"nav-item"}
-        = link_to "戻る", :back, class: 'btn btn-dark'
+        -else
+          %a.nav-link{href:new_animal_path} 新規登録
+        %span.sr-only (current)
+      %li.nav-item.dropdown
+        %a#navbarDropdown.nav-link.dropdown-toggle{aria:{expanded:"false",
+                                                         haspopup:"true"},
+                                                   data:{toggle:"dropdown"},
+                                                   href:"#",
+                                                   role:"button"}
+          =current_user.name
+        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+          %a.dropdown-item{href:edit_user_path(current_user)} ユーザー情報編集
+          %a.dropdown-item{href:"#"} あたらしい子を登録する
+          .dropdown-divider
+          %a.dropdown-item{href:"#"} ログアウト
