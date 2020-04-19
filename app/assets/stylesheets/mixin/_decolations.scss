@@ -1,0 +1,9 @@
+//文字の周辺が青く縁取られる
+@mixin characterShadow {
+  text-shadow:1px 1px 0 $mainColor, 
+                -1px -1px 0 $mainColor,
+                -1px 1px 0 $mainColor,
+                1px -1px 0 $mainColor,
+                0px 1px 0 $mainColor,
+                0-1px 0 $mainColor
+}
