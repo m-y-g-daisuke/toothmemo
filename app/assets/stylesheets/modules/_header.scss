@@ -5,46 +5,11 @@ nav{
 //   @include characterShadow
 // }
 
-.nav{
-  &-title{
-    width:50%;
-  }
-  &-icons{
-    padding-right: 10%;
-    padding-left: 10%;
-    width: 45%;
-    align-items: center;
-    .nav-username{
-      font-size: medium;
-    }
-    &__new--animal{
-      .post__record--new{
-        text-decoration: none;
-      }
-    }
-    &__edit--user{
-      .edit__user--profile{
-        text-decoration: none;
-      }
-      }
-  }
-}
-.animal__card{
-  min-height: 50px;
-  display: flex;
-  justify-content: center;
-  .show__animal--detail{
-    text-decoration: none;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  &--photo{
-    border: solid lightgray 1px;
-    width: 75px;
-    height: 75px;
-  }
-  &--name{
-    padding-left: 5px;
-  }
+#footer{
+  height: 30px;
+  padding: 0;
+  a{
+    margin: 0 auto;
+    font-size: small;
   }
 }
