@@ -4,7 +4,7 @@
 .wrapper{
   background-color: $subMainColor;
   width: 100vw;
-  height: 100vh;
+  min-height: calc(100vh - 130px);
   @import "modules/animals_middle_content";
   @import "modules/animals_bottom_content";
 }
