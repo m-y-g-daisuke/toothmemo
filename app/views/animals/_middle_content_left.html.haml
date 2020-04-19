@@ -1,27 +1,26 @@
 .middle__left.card.border-primary
   .middle__left--photo
-    =image_tag @animal.image.to_s, class:"photo-box border-primary", alt:"#{animal.name}"
+    =image_tag @animal.image.to_s, class:"photo-box border-primary img-fluid", alt:"#{animal.name}"
   .middle__left--profile.card-body
     .middle__left--profile-top.card-titile
-      .middle__left--profile-name
-        %h5
-          =animal.name
-  %ul{class:"list-group list-group-flush"}
-    %li{class:"list-group-item"}
-      -if animal.birth.present?
-        .middle__left--profile-top
-          .middle__left--profile-age
-            ="年齢：　" + @age + "歳"
-          .middle__left--profile-birth
-            ="誕生日：　" + animal.birth.strftime("%Y年%m月%d日") + "生まれ"
-    %li{class:"list-group-item"}
-      .middle__left--profile-bottom
-        .middle__left--profile-sex
-          ="性別：　" + animal.sex
-        .middle__left--profile-breed
-          ="品種：　" + @breed.family
-        .middle__left--profile-edit
-          =link_to edit_animal_path(params[:id]), class:"profile__edit--btn badge badge-primary" do
-            編集  
+      %h5
+        =animal.name
+    %ul{class:"list-group list-group-flush"}
+      %li{class:"list-group-item"}
+        -if animal.birth.present?
+          .middle__left--profile-top
+            .middle__left--profile-age
+              ="年齢：　" + @age + "歳"
+            .middle__left--profile-birth
+              ="誕生日：　" + animal.birth.strftime("%Y年%m月%d日") + "生まれ"
+      %li{class:"list-group-item"}
+        .middle__left--profile-bottom
+          .middle__left--profile-sex
+            ="性別：　" + animal.sex
+          .middle__left--profile-breed
+            ="品種：　" + @breed.family
+          .middle__left--profile-edit
+            =link_to edit_animal_path(params[:id]), class:"profile__edit--btn badge badge-primary" do
+              編集  
 
  
