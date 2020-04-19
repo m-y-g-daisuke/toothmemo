@@ -29,7 +29,7 @@
             =current_user.name
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
             %a.dropdown-item{href:animals_path} 一覧に戻る
-            %a.dropdown-item{href:new_animal_path} あたらしい子を登録する
+            %a.dropdown-item{href:new_animal_path} 新規登録
             %a.dropdown-item{href:edit_user_path(current_user)} ユーザー編集
             .dropdown-divider
             =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item"
