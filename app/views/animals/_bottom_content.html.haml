@@ -1,8 +1,7 @@
-.bottom-content
-  .bottom__left
-    .bottom__left--graph
-      =render "posts/post_graph"
-  .bottom__right
+.bottom-content.row
+  .bottom__left.card.border-primary.col-sm-10.col-12
+    =render "posts/post_graph"
+  .bottom__right.col-sm-2.col-12
     .bottom__right--btns
       =link_to "#", class:"show__animal--summery btn btn-primary disabled" do
         まとめレポート
