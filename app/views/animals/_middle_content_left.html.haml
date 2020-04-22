@@ -1,25 +1,24 @@
 .middle__left.card.border-primary.col-md-5.col-12
-  .middle__left--photo
-    =image_tag @animal.image.to_s, class:"photo-box border-primary img-fluid", alt:"#{animal.name}"
-  .middle__left--profile.card-body
-    .middle__left--profile-top.card-title
+  .middle__left--profile
+    .middle__left--profile-name
       %h4
         =animal.name
-    %ul   
-      -if animal.birth.present?
-        .row
-          %p.col
-            ="年齢：　" + @age + "歳"
-        .row
-          %p.col
-            ="誕生日：" + animal.birth.strftime("%Y年%m月%d日")
+  .middle__left--photo.card
+    =image_tag @animal.image.to_s, class:"photo-box border-primary img-fluid", alt:"#{animal.name}"
+  %ul.middle__left--profile-list.card-body
+    -if animal.birth.present?
       .row
         %p.col
-          = "性別：　" + animal.sex
+          ="年齢：　" + @age + "歳"
       .row
         %p.col
-          ="品種：　" + @breed.family
-      .middle__left--profile-edit
+          ="誕生日：" + animal.birth.strftime("%Y年%m月%d日")
+    .row
+      %p.col
+        = "性別：　" + animal.sex
+    .row
+      %p.col-md-10.col-12
+        ="品種：　" + @breed.family
+      %p.col-md-2.col-12
         =link_to "編集", edit_animal_path(params[:id]), class:"profile__edit--btn badge badge-primary"
 
- 

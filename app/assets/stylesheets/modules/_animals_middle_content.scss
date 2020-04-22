@@ -14,10 +14,20 @@
       }
     }
     &--profile{
-      font-size: 14px;
+      &-name{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        h4{
+          font-weight: bold;
+        }
+
+      }
+      &-list{
+        font-size: 14px;
       }
     }
-  
+  }
   .middle__right{
     width: 60%;
     &--post-btns{
