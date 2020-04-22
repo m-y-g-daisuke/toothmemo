@@ -14,22 +14,12 @@
       }
     }
     &--profile{
-      font-size: medium;
+      font-size: px;
+      }
       &-top{
-        display: flex;
-        justify-content: space-evenly;
-      }
-      &-bottom{
-        display: flex;
-        justify-content: space-evenly;
-      }
-      &-edit{
-        .profile__edit--btn{
-          text-decoration: none;
-        }
       }
     }
-  }
+  
   .middle__right{
     width: 60%;
     &--post-btns{
@@ -45,7 +35,6 @@
       margin: 0px auto;
       height: 70%;
       overflow: scroll;
-
     }
   }
 }
