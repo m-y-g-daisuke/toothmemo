@@ -2,10 +2,10 @@
   .middle__right--post-btns 
     .new__post
       =link_to new_animal_post_path(@animal), class:"new__post--btn btn btn-primary" do
-        新規記録を作る
+        新規記録
     .show__post
       =link_to animal_posts_path(@animal), class:"show__post--btn btn btn-primary" do
-        過去の記録一覧
+        記録一覧
   -if @post.present?
     .middle__right--post-latest.card.border-primary.mb-3{style:"max-width: 30rem;"}
       .post-latest__box.card-header
