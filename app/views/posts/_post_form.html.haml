@@ -6,41 +6,31 @@
       .form-control
         = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"
 
-    .second-box.row.align-items-center
-      .second-box__left.col
-        %table
-          %thead
-            %tr
-              %th
-                %h5 お手入れ方法
-          %tbody
-            .second-box__left
-              = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
-                =tool.label do
-                  %tr
-                    %td=tool.object.care
-                    %td=tool.check_box
+    .form-group
+      =f.label "お手入れ方法"
+      .form-control
+        = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
+          =tool.label do
+            %p
+              =tool.check_box
+              =tool.object.care + "　"
                 
-      .second-box__right.col
-        %table
-          %thead
-            %tr
-              %th
-                %h5 磨けたところ
-          %tbody.row
-            .second-box__right--left.col
-              = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
-                =word.label do
-                  %tr
-                    %td=word.object.word
-                    %td=word.check_box
-            .second-box__right--right.col
-              = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
-                =word.label do
-                  %tr
-                    %td=word.object.word
-                    %td=word.check_box
-                  
+    .form-group
+      =f.label "磨けたところ"
+      .form-control
+        .second-box__right--left.col
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
+            =word.label do
+              %tr
+                %td=word.object.word
+                %td=word.check_box
+        .second-box__right--right.col
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
+            =word.label do
+              %tr
+                %td=word.object.word
+                %td=word.check_box
+              
 
     .third-box.row
       %div{class:"card text-white bg-primary mb-3 col"}
