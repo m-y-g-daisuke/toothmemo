@@ -33,13 +33,10 @@
 
     .form-group
       =f.label "できたこと", for:"result--gj" 
-      =f.text_area :content_g, class:"result--gj form-control", rows:"4", placeholder:"どんなことでもいいので、できたことを記録しましょう！"
-     
-      %div{class:"card"}
-        %div{class:"card-header"}
-          =f.label "不安なところ", for:"result--anxiety" 
-          .third-box__right--anxiety
-            =f.text_area :content_b, size:"50x5", class:"result--anxiety",placeholder:"よくわからないことや改善したいこと"
+      =f.text_area :content_g, class:"result--gj form-control", rows:"4", placeholder:"どんなことでもいいので、できたことを記録しましょう！"     
+    .form-group
+      =f.label "不安なところ", for:"result--anxiety" 
+      =f.text_area :content_b, class:"result--anxiety form-control", rows:"4", placeholder:"よくわからないことや改善したいこと"
     .forth-box
       .file-box__uploader-image
         画像
@@ -48,11 +45,9 @@
         動画
         = f.file_field :movie, accept:"video/*"
     
-    .fifth-box
-      .memo-box
-        =f.label :メモ, for:"record--memo" 
-        .memo-box--t_area
-          =f.text_area :memo, size:"80x5", class:"record--memo",placeholder:"思ったことなんでも記入してください"
-      .submit-box
-        .vertical
-          = f.submit "提出する",class:"btn btn-outline-primary"
+    .form-group
+      =f.label :メモ, for:"record--memo" 
+      =f.text_area :memo, class:"record--memo form-control", rows:"4", placeholder:"思ったことなんでも記入してください"
+    .form-group
+      .vertical
+        = f.submit "提出する",class:"btn btn-outline-primary"
