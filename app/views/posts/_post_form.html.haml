@@ -17,8 +17,8 @@
 
 
     =f.label "◆ 磨けたところ"
-    .form-row            
-      .form-group.col            
+    .form-row
+      .form-group.col
         =f.label "左上顎"
         .form
           = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..3), :id, :word, class:"tag_words--checkboxes" do |word|
