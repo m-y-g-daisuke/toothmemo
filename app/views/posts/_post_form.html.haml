@@ -20,7 +20,7 @@
       .second-box__right--left.form-control
         = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
           =word.label do
-            %tr.col
+            %tr.col-2
               %td=word.object.word
               %td=word.check_box
       .second-box__right--right.form-control
@@ -37,13 +37,12 @@
     .form-group
       =f.label "不安なところ", for:"result--anxiety" 
       =f.text_area :content_b, class:"result--anxiety form-control", rows:"4", placeholder:"よくわからないことや改善したいこと"
-    .forth-box
-      .file-box__uploader-image
-        画像
-        = f.file_field :image, accept:"image/jpeg,image/gif,image/png,video/*"
-      .file-box__uploader-movie.col{style:"display:none;"} 
-        動画
-        = f.file_field :movie, accept:"video/*"
+    .form-group
+      =f.label "画像投稿",for:"post_image"
+      = f.file_field :image, accept:"image/jpeg,image/gif,image/png,video/*", class:"form-control-file"
+    -# .file-box__uploader-movie.col{style:"display:none;"} 
+    -#   動画
+    -#   = f.file_field :movie, accept:"video/*"
     
     .form-group
       =f.label :メモ, for:"record--memo" 
