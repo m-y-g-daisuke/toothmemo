@@ -31,30 +31,28 @@
               %td=word.check_box
             
 
-    .third-box.row
-      %div{class:"card text-white bg-primary mb-3 col"}
-        %div{class:"card-header"}
-          =f.label "できたこと", for:"result--gj" 
-          .third-box__left.card-text
-            =f.text_area :content_g, size:"50x5", class:"result--gj",placeholder:"どんなことでもいいので、できたことを記録しましょう！"
-      %div{class:"card text-white bg-secondary mb-3 col"}
+    .form-group
+      =f.label "できたこと", for:"result--gj" 
+      =f.text_area :content_g, class:"result--gj form-control", rows:"4", placeholder:"どんなことでもいいので、できたことを記録しましょう！"
+     
+      %div{class:"card"}
         %div{class:"card-header"}
           =f.label "不安なところ", for:"result--anxiety" 
           .third-box__right--anxiety
             =f.text_area :content_b, size:"50x5", class:"result--anxiety",placeholder:"よくわからないことや改善したいこと"
-    .forth-box.row
-      .file-box__uploader-image.col 
+    .forth-box
+      .file-box__uploader-image
         画像
         = f.file_field :image, accept:"image/jpeg,image/gif,image/png,video/*"
       .file-box__uploader-movie.col{style:"display:none;"} 
         動画
         = f.file_field :movie, accept:"video/*"
     
-    .fifth-box.form.row.align-items-center     
-      .memo-box.col
+    .fifth-box
+      .memo-box
         =f.label :メモ, for:"record--memo" 
         .memo-box--t_area
           =f.text_area :memo, size:"80x5", class:"record--memo",placeholder:"思ったことなんでも記入してください"
-      .submit-box.col
+      .submit-box
         .vertical
           = f.submit "提出する",class:"btn btn-outline-primary"
