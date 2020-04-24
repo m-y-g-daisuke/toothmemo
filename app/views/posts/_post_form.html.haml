@@ -6,29 +6,30 @@
       .form-control
         = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"
 
-    .form-group
-      =f.label "お手入れ方法"
-      .form-control
-        = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
-          =tool.label do
-            %p
-              =tool.check_box
-              =tool.object.care + "　"
-                
-    .form-group
-      =f.label "磨けたところ"
-      .second-box__right--left.form-control
-        = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
-          =word.label do
-            %tr.col-2
-              %td=word.object.word
-              %td=word.check_box
-      .second-box__right--right.form-control
-        = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
-          =word.label do
-            %tr.col
-              %td=word.object.word
-              %td=word.check_box
+    .form-row
+      .form-group
+        =f.label "お手入れ方法"
+        .form
+          = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
+            =tool.label do
+              %p.form-control
+                =tool.check_box
+                =tool.object.care + "　"
+    .form-row
+      .form-group            
+        =f.label "磨けたところ"
+        .second-box__right--left.col
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
+            =word.label do
+              %tr.form-control
+                %td=word.object.word
+                %td=word.check_box
+        .second-box__right--right
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
+            =word.label do
+              %tr.col
+                %td=word.object.word
+                %td=word.check_box
             
 
     .form-group
