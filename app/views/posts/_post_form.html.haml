@@ -6,31 +6,51 @@
       .form-control
         = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"
 
-    .form-row
-      .form-group
-        =f.label "お手入れ方法"
+    .form-group
+      =f.label "お手入れ方法"
+      .form
+        = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
+          =tool.label do
+            %p.form-control
+              =tool.object.care
+              =tool.check_box
+
+
+    =f.label "◆ 磨けたところ"
+    .form-row            
+      .form-group.col            
+        =f.label "左上顎"
         .form
-          = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
-            =tool.label do
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..3), :id, :word, class:"tag_words--checkboxes" do |word|
+            =word.label do
               %p.form-control
-                =tool.check_box
-                =tool.object.care + "　"
-    .form-row
-      .form-group            
-        =f.label "磨けたところ"
-        .second-box__right--left.col
-          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
+                =word.object.word
+                =word.check_box
+      .form-group.col         
+        =f.label "右上顎"
+        .form
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:4..6), :id, :word, class:"tag_words--checkboxes" do |word|
             =word.label do
-              %tr.form-control
-                %td=word.object.word
-                %td=word.check_box
-        .second-box__right--right
-          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
+              %p.form-control
+                =word.object.word
+                =word.check_box
+    .form-row            
+      .form-group.col            
+        =f.label "左下顎"
+        .form
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..9), :id, :word, class:"tag_words--checkboxes" do |word|
             =word.label do
-              %tr.col
-                %td=word.object.word
-                %td=word.check_box
-            
+              %p.form-control
+                =word.object.word
+                =word.check_box
+      .form-group.col         
+        =f.label "右下顎"
+        .form
+          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:10..12), :id, :word, class:"tag_words--checkboxes" do |word|
+            =word.label do
+              %p.form-control
+                =word.object.word
+                =word.check_box
 
     .form-group
       =f.label "できたこと", for:"result--gj" 
