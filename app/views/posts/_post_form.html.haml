@@ -17,20 +17,19 @@
                 
     .form-group
       =f.label "磨けたところ"
-      .form-control
-        .second-box__right--left.col
-          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
-            =word.label do
-              %tr
-                %td=word.object.word
-                %td=word.check_box
-        .second-box__right--right.col
-          = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
-            =word.label do
-              %tr
-                %td=word.object.word
-                %td=word.check_box
-              
+      .second-box__right--left.form-control
+        = f.collection_check_boxes :tag_word_ids, TagWord.where(id:1..6), :id, :word, class:"tag_words--checkboxes" do |word|
+          =word.label do
+            %tr.col
+              %td=word.object.word
+              %td=word.check_box
+      .second-box__right--right.form-control
+        = f.collection_check_boxes :tag_word_ids, TagWord.where(id:7..12), :id, :word, class:"tag_words--checkboxes" do |word|
+          =word.label do
+            %tr.col
+              %td=word.object.word
+              %td=word.check_box
+            
 
     .third-box.row
       %div{class:"card text-white bg-primary mb-3 col"}
