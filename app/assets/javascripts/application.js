@@ -20,5 +20,13 @@
 //= require popper
 //= require bootstrap-sprockets
 
+// bootstrap4 datetime picker rails
+//= require moment
+// If you require timezone data (see moment-timezone-rails for additional file options)
+//= require moment-timezone-with-data
+//= require tempusdominus-bootstrap-4
+//= require moment/ja.js
+
+
 //= require chartkick
 //= require Chart.bundle
