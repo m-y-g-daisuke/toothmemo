@@ -70,4 +70,5 @@ gem "rails_admin"
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
 gem 'bootstrap_form'
+gem 'bootstrap4-datetime-picker-rails'
 gem "chartkick"
