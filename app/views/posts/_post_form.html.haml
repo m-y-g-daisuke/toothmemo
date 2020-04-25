@@ -1,10 +1,37 @@
 .container
   = form_with(model: [@animal,post], local: true) do |f|
 
-    .form-group
-      =f.label "歯磨き日時"
-      .form-control
-        = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"
+    =f.label "歯磨き日時"
+    .form-row
+      .form-group.col-sm-4
+        #datetimepicker4.input-group.date{"data-target-input" => "nearest"}
+          %input.form-control.datetimepicker-input{data:{target:"#datetimepicker4"}, 
+                                                    type:"text",
+                                                    name:"post[recorded_at]"}/
+          .input-group-append{"data-target" => "#datetimepicker4", "data-toggle" => "datetimepicker"}
+            .input-group-text
+              %i.fa.fa-calendar
+
+      .form-group.col-sm-4  
+        #datetimepicker3.input-group.date{"data-target-input" => "nearest"}
+          %input.form-control.datetimepicker-input{"data-target" => "#datetimepicker3", 
+                                                    :type => "text",
+                                                    name:"post[recorded_at]"}/
+          .input-group-append{"data-target" => "#datetimepicker3", "data-toggle" => "datetimepicker"}
+            .input-group-text
+              %i.fa.fa-clock
+
+    :javascript
+      $(function () {
+          $('#datetimepicker4').datetimepicker({
+              format: 'L'
+          });
+          $('#datetimepicker3').datetimepicker({
+              format: 'LT'
+          });
+      });
+
+
 
     .form-group
       =f.label "お手入れ方法"
