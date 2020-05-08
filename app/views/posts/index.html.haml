@@ -1,6 +1,7 @@
+=render "layouts/header"
 .wrapper
-  =render "layouts/header"
-  .title
-    %h1 記録一覧
+  =render "layouts/flash_messages"
+  %h1.title 記録一覧
   .posts__box
     =render @posts
+=render "layouts/footer"
