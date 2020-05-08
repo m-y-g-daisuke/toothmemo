@@ -2,6 +2,8 @@ class Animal < ApplicationRecord
   has_many :posts
   belongs_to :breed
   belongs_to :user
+  validates :name, presence: true
+  validates :image, presence: true
   
   mount_uploader :image, ImageUploader
 
