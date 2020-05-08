@@ -1,5 +1,7 @@
 =render "layouts/header"
-.container
-  %h1.title 歯磨きする子の登録
-  =render partial:"layouts/error_messages",locals:{object:@animal}
-  =render partial:"form",locals:{animal:@animal}
+.wrapper
+  .container
+    %h1.title 歯磨きする子の登録
+    =render partial:"layouts/error_messages",locals:{object:@animal}
+    =render partial:"form",locals:{animal:@animal}
+=render "layouts/footer"
