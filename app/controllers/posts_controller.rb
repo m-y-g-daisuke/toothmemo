@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_animal
   def index
-    @posts=@animal.posts
+    @posts=@animal.posts.order(recorded_at: "DESC")
   end
 
   def show
