@@ -1,29 +1,40 @@
 = form_with(model: @animal, local: true) do |f|
   .form-group
     = f.label "おなまえ", for:"animal__form--birthday"
+    %p.badge.badge-danger 必須
     = f.text_field :name, class: "animal__form--name form-control", placeholder: "名前を入力してください"
+  
   .form-group
     = f.label "生年月日", for:"animal__form--birth"
+    %p.badge.badge-secondary 任意
     .form-control
       = f.date_select :birth, class:"animal__form--birth form-control",start_year:Time.now.year, end_year:1995, prompt:"--"
       = + "日"
+  
   .form-group
     =f.label "性別", for:"select-sex-btn"
+    %p.badge.badge-danger 必須
     .select-sex.form-control.form-control
-      = f.radio_button :sex, "オス", id:"male-select",class:"select-sex-btn" 
-      = f.label :sex, "オス", for:"male-select"
-      = f.radio_button :sex, "メス", id:"female-select",class:"select-sex-btn" 
-      = f.label :sex, "メス", for:"female-select" 
-      = f.radio_button :sex, "去勢オス", id:"casted-select",class:"select-sex-btn" 
-      = f.label :sex, "去勢オス", for:"casted-select" 
-      = f.radio_button :sex, "避妊メス", id:"spayed-select",class:"select-sex-btn" 
-      = f.label :sex, "避妊メス", for:"spayed-select"
+      .form-check.form-check-inline
+        = f.radio_button :sex, "オス", id:"male-select",class:"select-sex-btn form-check-input" 
+        = f.label :sex, "オス", for:"male-select", class:"form-check-label"
+      .form-check.form-check-inline
+        = f.radio_button :sex, "メス", id:"female-select",class:"select-sex-btn form-check-input" 
+        = f.label :sex, "メス", for:"female-select", class:"form-check-label"
+      .form-check.form-check-inline
+        = f.radio_button :sex, "去勢オス", id:"casted-select",class:"select-sex-btn form-check-input" 
+        = f.label :sex, "去勢オス", for:"casted-select", class:"form-check-label" 
+      .form-check.form-check-inline
+        = f.radio_button :sex, "避妊メス", id:"spayed-select",class:"select-sex-btn form-check-input" 
+        = f.label :sex, "避妊メス", for:"spayed-select", class:"form-check-label"
   .form-group
     = f.label "品種", for:"animal_breed_id"
+    %p.badge.badge-danger 必須
     .form-control
       = f.collection_select :breed_id, Breed.all, :id, :family ,class:"select-breed-btn form-control",prompt:"--"
   .form-group
     = f.label "プロフィール画像を設定する", class:"image-upload__label"
+    %p.badge.badge-danger 必須
     .form-control
       = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
   .form-group  
