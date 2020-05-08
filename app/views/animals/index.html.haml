@@ -5,12 +5,13 @@
       %h1 ようこそ！歯磨き記録帳へ！まずは動物を登録してみよう！！
     -else
       - current_user.animals.each do |animal|
+        .space-50
         .animal__card
           = link_to animal_path(animal), class:"show__animal--detail dropdown-item" do
             =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:"#{animal.name}の画像"
             .animal__card--name 
               =animal.name
-    .animal__card
+    .animal__card.space-50
       =link_to new_animal_path, class:"post__record--new" do
         %button{type:"button",class:"btn btn-success btn-sm"}
           新規登録

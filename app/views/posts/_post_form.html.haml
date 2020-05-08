@@ -2,12 +2,13 @@
   = form_with(model: [@animal,post], local: true) do |f|
 
     .form-group
-      =f.label "歯磨き日時"
+      =f.label "◆歯磨き日時"
+      %p.badge.badge-danger 必須
       .form-control
         = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"
 
     .form-group
-      =f.label "お手入れ方法"
+      =f.label "◆お手入れ方法"
       .form
         = f.collection_check_boxes :tool_ids, Tool.all, :id, :care, class:"tool--checkboxes" do |tool|
           =tool.label do
@@ -53,20 +54,20 @@
                 =word.check_box
 
     .form-group
-      =f.label "できたこと", for:"result--gj" 
+      =f.label "◆できたこと", for:"result--gj" 
       =f.text_area :content_g, class:"result--gj form-control", rows:"4", placeholder:"どんなことでもいいので、できたことを記録しましょう！"     
     .form-group
-      =f.label "不安なところ", for:"result--anxiety" 
+      =f.label "◆不安なところ", for:"result--anxiety" 
       =f.text_area :content_b, class:"result--anxiety form-control", rows:"4", placeholder:"よくわからないことや改善したいこと"
     .form-group
-      =f.label "画像投稿",for:"post_image"
+      =f.label "◆画像投稿",for:"post_image"
       = f.file_field :image, accept:"image/jpeg,image/gif,image/png,video/*", class:"form-control-file"
     -# .file-box__uploader-movie.col{style:"display:none;"} 
     -#   動画
     -#   = f.file_field :movie, accept:"video/*"
     
     .form-group
-      =f.label :メモ, for:"record--memo" 
+      =f.label "◆メモ", for:"record--memo" 
       =f.text_area :memo, class:"record--memo form-control", rows:"4", placeholder:"思ったことなんでも記入してください"
     .form-group
       .vertical

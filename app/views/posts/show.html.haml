@@ -1,5 +1,6 @@
+=render "layouts/header"
 .wrapper
-  =render "layouts/header"
+  =render "layouts/flash_messages"
   .container
     .first-box.row
       %h4
@@ -61,3 +62,4 @@
         編集
       =link_to animal_post_path(@animal,@post), class:"post__right-edit--link btn-outline-danger",method: :delete, data:{ confirm: "削除しますか？"} do
         削除
+=render "layouts/footer"

@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
   def create
     @animal=Animal.new(animal_params)
     if @animal.save
-      flash[:success] = "#{@animal.name}ちゃんを登録しました。歯磨きがんばりましょう♪"
+      flash.now[:success] = "#{@animal.name}ちゃんを登録しました。歯磨きがんばりましょう♪"
       redirect_to animal_path(@animal)
     else
       render :new
