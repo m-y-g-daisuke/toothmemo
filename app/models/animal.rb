@@ -1,5 +1,5 @@
 class Animal < ApplicationRecord
-  has_many :posts
+  has_many :posts, dependent: :delete_all
   belongs_to :breed
   belongs_to :user
   validates :name, presence: true
