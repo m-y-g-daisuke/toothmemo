@@ -4,6 +4,7 @@ class Animal < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
   validates :image, presence: true
+  validates :sex, presence:true
   
   mount_uploader :image, ImageUploader
 
