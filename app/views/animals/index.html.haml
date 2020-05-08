@@ -7,7 +7,7 @@
       - current_user.animals.each do |animal|
         .animal__card
           = link_to animal_path(animal), class:"show__animal--detail dropdown-item" do
-            =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:""
+            =image_tag animal.image.url(:thumb),class:"animal__card--photo",alt:"#{animal.name}の画像"
             .animal__card--name 
               =animal.name
     .animal__card
