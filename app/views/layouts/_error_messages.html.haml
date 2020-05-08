@@ -1,0 +1,9 @@
+//error message
+- if object.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      ="#{object.errors.count}つの未入力の必須項目があります"
+    %ul
+      - object.errors.full_messages.each do |msg|
+        %li
+          = msg
