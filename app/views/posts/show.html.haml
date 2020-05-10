@@ -1,63 +1,61 @@
-.wrapper
-  =render "layouts/flash_messages"
-  .container
-    .first-box.row
-      %h4
-        =@post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-       
-    .second-box.row.align-items-center
-      .second-box__left.col
-        %h5
-          お手入れ方法
-        .second-box__left
-          -@post.tools.each do |tool|
-            =tool.care
+.container
+  .first-box.row
+    %h4
+      =@post.recorded_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
       
-      .second-box__right.col
-        %h5
-          磨けたところ
-        .second-box__right
-          -@post.tag_words.each do |tag_word|
-            =tag_word.word
-
-    .third-box.row
-      %div{class:"card text-white bg-primary mb-3 col"}
-        %div{class:"card-header"}
-          %h5
-            できたこと
-          .third-box__left.card-text
-          =@post.content_g
-      
-      %div{class:"card text-white bg-secondary mb-3 col"}
-        %div{class:"card-header"}
-          %h5
-            不安なこと
-          .third-box__right--anxiety
-          =@post.content_b
-      
-    .forth-box.row
-      .file-box__uploader-image.col 
-        - if @post.image.present?
-          =image_tag @post.image.to_s, class:"photo-box rounded mx-auto d-block",style:"width: 300px;height: 300px;max-height: 100%;width: auto;"
-      .file-box__uploader-movie.col{style:"display:none;"} 
-        - if @post.movie.present?
-          =video_tag @post.movie.to_s, width: "30%", height: "30%", controls: true, autobuffer: true, class:"movie-box"
+  .second-box.row.align-items-center
+    .second-box__left.col
+      %h5
+        お手入れ方法
+      .second-box__left
+        -@post.tools.each do |tool|
+          =tool.care
     
-      .fifth-box.form.col.align-items-center     
-        .memo-box.col.card.bg.light.mb-3{style:"max-width:40rem;"}
-          %h5{class:"card-header"}
-            メモ
-          .memo-box--t_area.card-body 
-            %p{class:"card-text"}
-              =@post.memo
+    .second-box__right.col
+      %h5
+        磨けたところ
+      .second-box__right
+        -@post.tag_words.each do |tag_word|
+          =tag_word.word
+
+  .third-box.row
+    %div{class:"card text-white bg-primary mb-3 col"}
+      %div{class:"card-header"}
+        %h5
+          できたこと
+        .third-box__left.card-text
+        =@post.content_g
+    
+    %div{class:"card text-white bg-secondary mb-3 col"}
+      %div{class:"card-header"}
+        %h5
+          不安なこと
+        .third-box__right--anxiety
+        =@post.content_b
+    
+  .forth-box.row
+    .file-box__uploader-image.col 
+      - if @post.image.present?
+        =image_tag @post.image.to_s, class:"photo-box rounded mx-auto d-block",style:"width: 300px;height: 300px;max-height: 100%;width: auto;"
+    .file-box__uploader-movie.col{style:"display:none;"} 
+      - if @post.movie.present?
+        =video_tag @post.movie.to_s, width: "30%", height: "30%", controls: true, autobuffer: true, class:"movie-box"
+  
+    .fifth-box.form.col.align-items-center     
+      .memo-box.col.card.bg.light.mb-3{style:"max-width:40rem;"}
+        %h5{class:"card-header"}
+          メモ
+        .memo-box--t_area.card-body 
+          %p{class:"card-text"}
+            =@post.memo
 
 
-    .temporary-link
-      =link_to animal_posts_path(@animal), class:"show__post--btn btn btn-primary" do
-        過去の記録一覧
-      =link_to animal_path(@animal), class:"show__post--btn btn btn-success" do
-        トップページへ
-      =link_to edit_animal_post_path(@animal,@post), class:"post__right-edit--link btn-outline-warning" do
-        編集
-      =link_to animal_post_path(@animal,@post), class:"post__right-edit--link btn-outline-danger",method: :delete, data:{ confirm: "削除しますか？"} do
-        削除
+  .temporary-link
+    =link_to animal_posts_path(@animal), class:"show__post--btn btn btn-primary" do
+      過去の記録一覧
+    =link_to animal_path(@animal), class:"show__post--btn btn btn-success" do
+      トップページへ
+    =link_to edit_animal_post_path(@animal,@post), class:"post__right-edit--link btn-outline-warning" do
+      編集
+    =link_to animal_post_path(@animal,@post), class:"post__right-edit--link btn-outline-danger",method: :delete, data:{ confirm: "削除しますか？"} do
+      削除

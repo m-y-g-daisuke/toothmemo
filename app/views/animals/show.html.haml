@@ -1,7 +1,4 @@
-.wrapper
-  = render "layouts/flash_messages"
-
-  .middle-content.row
-    = render partial:"middle_content_left", locals:{animal:@animal,breed:@breed}
-    = render "middle_content_right"
-  = render "bottom_content"
+.middle-content.row
+  = render partial:"middle_content_left", locals:{animal:@animal,breed:@breed}
+  = render "middle_content_right"
+= render "bottom_content"
