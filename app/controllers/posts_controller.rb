@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_animal
+  before_action :set_search
+
   def index
     @posts=@animal.posts.order(recorded_at: "DESC")
+    
   end
 
   def show
@@ -51,6 +54,11 @@ class PostsController < ApplicationController
 
   def set_animal
     @animal=Animal.find(params[:animal_id])
+  end
+
+  def set_search
+    @search = Post.ransack(params[:q])
+    @search_posts = @search.result(distinct: true)
   end
 
 end

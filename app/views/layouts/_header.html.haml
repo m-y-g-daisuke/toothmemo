@@ -35,6 +35,8 @@
             =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item"
 
 
-    %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{placeholder:"記録の検索", type:"search"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{type:"submit"} Search
+    -# -if @animal.present? && @animal.id
+    -#   %form.form-inline.my-2.my-lg-0
+    -#     = search_form_for @search, url:animal_search_index_path(@animal), method: :get do |f|
+    -#       =f.search_field :content_g_or_content_b_or_memo_cont, placeholder:"記録の検索", class:"form-control mr-sm-2"
+    -#       =f.submit "Search", class:"btn btn-outline-success my-2 my-sm-0"

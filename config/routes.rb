@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "animals#index"
   resources :animals do
     resources :posts
+    resources :search, only: :index
   end
   
 end

@@ -1,3 +1,7 @@
 %h1.title 記録一覧
 .posts__box
-  =render @posts
+  -# -if @search_posts
+  -#   = render partial:'search_post'
+  -#   -# , locals:{post:@search_posts}
+  -# -else
+  = render @posts

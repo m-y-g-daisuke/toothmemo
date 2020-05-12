@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update]
+  before_action :set_search, only: [:show, :edit, :update]
   def index
   end
 
@@ -46,6 +47,11 @@ class AnimalsController < ApplicationController
 
   def set_animal
     @animal=Animal.find(params[:id])
+  end
+
+  def set_search
+    @search = @animal.posts.ransack(params[:q])
+    @search_posts = @search.result(distinct: true)
   end
 
 end
