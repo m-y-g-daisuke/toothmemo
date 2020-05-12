@@ -42,6 +42,7 @@ heroku:  https://hamigaki.herokuapp.com/
 動画の投稿  
 グラフAPIを導入し、1週間でどんな歯磨き方法を何回行ったのかを可視化
 投稿記録検索機能
+品種選択の充実化
 
 * DB設計
 
