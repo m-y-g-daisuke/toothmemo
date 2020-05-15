@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_063027) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.datetime "recorded_at", null: false
     t.text "content_g"
     t.text "image"
     t.text "movie"
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_063027) do
     t.datetime "updated_at", null: false
     t.text "memo"
     t.text "content_b"
+    t.datetime "recorded_at"
     t.index ["animal_id"], name: "index_posts_on_animal_id"
   end
 
