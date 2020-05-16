@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:animal){create(:animal)}
-  describe 'validation' do
-    context 'valid' do
+  describe 'as validation' do
+    context 'is valid' do
     let(:post){build(:post)}
     it 'with recorded_at' do
       expect(post).to be_valid
@@ -16,12 +16,12 @@ RSpec.describe Post, type: :model do
       end
     end
   end
-  describe 'association' do
+  describe 'as association' do
     let(:association) { described_class.reflect_on_association(target) }
 
-    context 'Animal' do
+    context 'belongs to' do
       let(:target) { :animal }
-      it 'belongs_to' do
+      it 'Animal' do
         expect(association.macro).to eq :belongs_to
       end
     end
