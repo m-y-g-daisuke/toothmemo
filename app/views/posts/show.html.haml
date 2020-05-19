@@ -17,29 +17,33 @@
     .col
       .card.border-primary
         %label ・左上顎
-        -@post.tag_words.each do |t|
-          -if t.id == 1 .. t.id==3
-            =t.word
+        .card-body
+          -@post.tag_words.each do |t|
+            -if t.id == 1 .. t.id==3
+              =t.word
     .col         
       .card.border-primary
         %label ・右上顎
-        -@post.tag_words.each do |t|
-          -if t.id == 4 .. t.id==6
-            =t.word 
+        .card-body
+          -@post.tag_words.each do |t|
+            -if t.id == 4 .. t.id==6
+              =t.word 
   .space-5   
   .row            
     .col            
       .card.border-primary
         %label ・左下顎
-        -@post.tag_words.each do |t|
-          -if t.id == 7 .. t.id==9
-            =t.word
+        .card-body
+          -@post.tag_words.each do |t|
+            -if t.id == 7 .. t.id==9
+              =t.word
     .col         
       .card.border-primary
         %label ・右下顎
-        -@post.tag_words.each do |t|
-          -if t.id == 10 .. t.id==12
-            =t.word
+        .card-body
+          -@post.tag_words.each do |t|
+            -if t.id == 10 .. t.id==12
+              =t.word
 
   %label.space-10 ◆できたこと
   .card.border-primary
