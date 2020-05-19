@@ -2,19 +2,19 @@
   .form-group
     = f.label "おなまえ", for:"animal__form--birthday"
     %p.badge.badge-danger 必須
-    = f.text_field :name, class: "animal__form--name form-control", placeholder: "名前を入力してください"
+    = f.text_field :name, class: "animal__form--name form-control col-4", placeholder: "名前を入力してください"
   
   .form-group
     = f.label "生年月日", for:"animal__form--birth"
     %p.badge.badge-secondary 任意
-    .form-control
-      = f.date_select :birth, class:"animal__form--birth form-control",start_year:Time.now.year, end_year:1995, prompt:"--"
-      = + "日"
+    .form
+      .row.date-selecter
+        !=sprintf(f.date_select(:birth,{use_two_digit_numbers: true,start_year:Time.now.year, end_year:1995, prompt:"--",date_separator: '%s'},{ class: 'form-control col-md-2 col-3',id:"date-selecter" }),'年 ', '月 ') + '日'
   
   .form-group
     =f.label "性別", for:"select-sex-btn"
     %p.badge.badge-danger 必須
-    .select-sex.form-control.form-control
+    .select-sex.form-control.form-control.col-6
       .form-check.form-check-inline
         = f.radio_button :sex, "オス", id:"male-select",class:"select-sex-btn form-check-input" 
         = f.label :sex, "オス", for:"male-select", class:"form-check-label"
@@ -30,12 +30,12 @@
   .form-group
     = f.label "品種", for:"animal_breed_id"
     %p.badge.badge-danger 必須
-    .form-control
-      = f.collection_select :breed_id, Breed.all, :id, :family ,class:"select-breed-btn form-control",prompt:"--"
+    .form
+      = f.collection_select :breed_id, Breed.all, :id, :family,{ prompt:"--"},{class:'form-control col-4'}
   .form-group
     = f.label "プロフィール画像を設定する", class:"image-upload__label"
     %p.badge.badge-danger 必須
-    .form-control
+    .form-control.col-6
       = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
   .form-group  
     = f.submit "保存", class:"animal__form--submit btn btn-primary"
