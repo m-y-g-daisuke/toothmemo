@@ -1,12 +1,12 @@
-nav{
+nav#header{
   min-height: 100px;
 }
 // #navbarTogglerDemo02{
 //   @include characterShadow
 // }
 
-#footer{
-  height: 30px;
+nav#footer{
+  height: 30px !important;
   padding: 0;
   a{
     margin: 0 auto;

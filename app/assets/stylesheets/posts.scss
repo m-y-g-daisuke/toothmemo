@@ -6,8 +6,6 @@
       &--link{
         text-decoration: none;
       }
-      .post__recorded_at{
-      }
       .card-body{
         overflow: scroll;
       }
@@ -18,4 +16,18 @@
       }
     }
   }
+}
+//pose#showの下部のlink
+.post__show__bottom--links{
+  a{
+    margin-right: 10px;
+  }
+}
+//form
+.date-selecter{
+  font-size: 14px;
+  line-height: 40px;
+}
+#date-selecter{
+  margin-left: 15px;
 }
