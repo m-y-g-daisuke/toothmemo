@@ -4,8 +4,9 @@
     .form-group
       =f.label "◆歯磨き日時"
       %p.badge.badge-danger 必須
-      .form-control
-        = f.datetime_select :recorded_at,{default:Time.now}, class:"recorded_at"
+      .form
+        .row.date-selecter
+          !=sprintf(f.datetime_select(:recorded_at,{default:Time.zone.now,use_two_digit_numbers: true,date_separator: '%s',datetime_separator: '%s',time_separator: '%s'},{ class: 'form-control col-md-2 col-3',id:"date-selecter" }),'年 ', '月 ', '日 ', '時 ') + '分'
 
     .form-group
       =f.label "◆お手入れ方法"
