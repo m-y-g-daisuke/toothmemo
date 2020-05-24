@@ -1,2 +1,6 @@
 - flash.each do |message_type, message|
+  -if message_type=="alert"
+    -message_type="danger"
+  -if message_type=="notice"
+    -message_type="success"
   = content_tag(:div, message, class:"alert alert-#{message_type}")
