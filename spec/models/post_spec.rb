@@ -2,26 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:animal){create(:animal)}
-  describe 'as validation' do
-    context 'is valid' do
+  describe 'Post' do
+    context 'as valid' do
     let(:post){build(:post)}
-    it 'with recorded_at' do
+    it 'is with recorded_at' do
       expect(post).to be_valid
     end
   end
-  context 'invalid' do
+  context 'as invalid' do
     let(:post){build(:post,recorded_at:nil)}
-      it 'without recorded_at' do
+      it 'is without recorded_at' do
         expect(post).to be_invalid
       end
     end
   end
-  describe 'as association' do
+  describe 'Post' do
     let(:association) { described_class.reflect_on_association(target) }
 
-    context 'belongs to' do
+    context 'as association' do
       let(:target) { :animal }
-      it 'Animal' do
+      it 'belongs_to Animal' do
         expect(association.macro).to eq :belongs_to
       end
     end
