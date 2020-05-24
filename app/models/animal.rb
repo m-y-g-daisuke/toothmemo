@@ -2,7 +2,7 @@ class Animal < ApplicationRecord
   has_many :posts, dependent: :delete_all
   belongs_to :breed
   belongs_to :user
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness:{ scope: :user_id }
   validates :image, presence: true
   validates :sex, presence:true
   
