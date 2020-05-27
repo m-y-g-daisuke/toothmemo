@@ -5,7 +5,7 @@ FactoryBot.define do
     birth {Faker::Date.birthday(min_age: 0, max_age: 25)}
     sex {"オス"}
     image {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.png'))}
-    breed
-    user
+    association :breed
+    association :user
   end
 end
