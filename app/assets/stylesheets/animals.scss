@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wrapper{
   background-color: $subMainColor;
-  width: 100vw;
+  // width: 100vw;
   min-height: calc(100vh - 130px);
   @import "modules/animals_middle_content";
   @import "modules/animals_bottom_content";

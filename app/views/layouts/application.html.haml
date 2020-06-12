@@ -14,7 +14,9 @@
   %body
     =render "layouts/header"
     .wrapper
+      .space-10
       .container-fluid
         =render "layouts/flash_messages"
         = yield
+      .space-10
     =render "layouts/footer"
